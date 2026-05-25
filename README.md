@@ -1,16 +1,38 @@
-# React + Vite
+# 五十音 — Kana Derivation Chart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive visualization of how the two Japanese phonetic alphabets —
+**hiragana** and **katakana** — were each derived from kanji.
 
-Currently, two official plugins are available:
+**Live:** https://kana.gfrm.in
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All 46 basic syllables are laid out in the traditional gojūon grid (consonant ×
+vowel) and colour-coded by writing system. Click any cell to expand its
+derivation: the cursive simplification that produced the **hiragana** form and
+the component extraction that produced the **katakana** form, both traced back
+to their shared source kanji. A second tab covers the voiced and semi-voiced
+(**dakuten / handakuten**) variants, and contextual notes flag archaic kana,
+affricate pronunciations, and duplicate readings.
 
-## React Compiler
+Colour key: hiragana `#c25a3c` (rust), katakana `#2a6496` (blue), shared source
+kanji `#8b6914` (gold).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+React 19 + Vite 7, single-page app, no TypeScript. The chart data, components,
+and styles all live in `src/App.jsx`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Development
+
+```bash
+npm install
+npm run dev      # Vite dev server
+npm run build    # production build to dist/
+npm run lint     # ESLint
+npm run preview  # preview the production build
+```
+
+## Deployment
+
+Hosted on Cloudflare Pages. Every push to `master` triggers the GitHub Actions
+workflow (`.github/workflows/deploy.yml`), which builds the site and deploys
+`dist/` to the `kana` Pages project at https://kana.gfrm.in.
