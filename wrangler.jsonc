@@ -14,19 +14,15 @@
   "assets": {
     "directory": "./dist",
 
-    // Behaviour-preserving on migration, NOT a considered choice yet.
+    // This site is one page with no client-side router, so an unmatched path
+    // is a real 404 and should say so. Under the Pages default (and under
+    // "single-page-application", which the cutover used to preserve it exactly)
+    // every typo returned 200 with the chart, which lets a crawler index the
+    // same page under unlimited URLs.
     //
-    // On Pages, a project with no public/404.html gets the default SPA
-    // fallback: any unmatched path serves index.html with a 200. This
-    // reproduces that exactly, so the cutover changes nothing observable.
-    //
-    // It is probably wrong for this site: the chart is a single page with no
-    // client-side router, so /anything-at-all currently returns 200 and a
-    // crawler will happily index the shell under every typo. Switching to
-    // "404-page" plus a real public/404.html is the fix — as its own change,
-    // after the cutover is verified, so a regression is attributable to one of
-    // the two and not to both at once.
-    "not_found_handling": "single-page-application",
+    // Requires public/404.html to exist — without it this setting has nothing
+    // to serve.
+    "not_found_handling": "404-page",
   },
 
   "observability": {

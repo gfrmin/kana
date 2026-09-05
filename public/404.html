@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>404 — 五十音</title>
+    <style>
+      /* Same palette and type as the chart (src/App.jsx), inlined: a 404 that
+         waits on a stylesheet is a 404 that flashes unstyled. */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        text-align: center;
+        background: #fdfcfa;
+        color: #2c2418;
+        font-family: 'Noto Serif JP', 'Hiragino Mincho Pro', 'Yu Mincho', Georgia, serif;
+      }
+      .glyph { font-size: clamp(3rem, 12vw, 5rem); color: #c25a3c; line-height: 1; }
+      h1 { font-size: 1.25rem; font-weight: 600; margin: 0; }
+      p { margin: 0; color: #7a6d55; }
+      a { color: #2a6496; }
+    </style>
+  </head>
+  <body>
+    <div class="glyph" lang="ja">ん</div>
+    <h1>404 — page not found</h1>
+    <p><a href="/">Back to the gojūon chart</a></p>
+  </body>
+</html>
