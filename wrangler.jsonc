@@ -1,0 +1,35 @@
+{
+  // Cloudflare Workers config. Deploy with `npx wrangler deploy`, or just push
+  // to master — .github/workflows/deploy.yml calls the shared recipe in
+  // gfrmin/site-kit.
+  //
+  // Migrated from Cloudflare Pages 2026-09-05. Pages stays supported and gets
+  // bug fixes, but every new platform feature ships to Workers only. The old
+  // Pages project `kana` is deliberately left in place as the rollback:
+  // re-attaching kana.gfrm.in to it is a one-call revert.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kana",
+  "compatibility_date": "2026-09-05",
+
+  "assets": {
+    "directory": "./dist",
+
+    // Behaviour-preserving on migration, NOT a considered choice yet.
+    //
+    // On Pages, a project with no public/404.html gets the default SPA
+    // fallback: any unmatched path serves index.html with a 200. This
+    // reproduces that exactly, so the cutover changes nothing observable.
+    //
+    // It is probably wrong for this site: the chart is a single page with no
+    // client-side router, so /anything-at-all currently returns 200 and a
+    // crawler will happily index the shell under every typo. Switching to
+    // "404-page" plus a real public/404.html is the fix — as its own change,
+    // after the cutover is verified, so a regression is attributable to one of
+    // the two and not to both at once.
+    "not_found_handling": "single-page-application",
+  },
+
+  "observability": {
+    "enabled": true,
+  },
+}
