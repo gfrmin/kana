@@ -14,6 +14,7 @@ jobs:
     uses: gfrmin/site-kit/.github/workflows/worker-deploy.yml@master
     with:
       build: npm run build
+      expect: Kana
       # kana has no test suite, but it does have eslint that nothing ever ran.
       # Wiring it here makes a lint failure block the deploy.
       test: npm run lint
