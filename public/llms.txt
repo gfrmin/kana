@@ -1,0 +1,9 @@
+# Kana Derivation Chart
+
+> An interactive chart of how the Japanese hiragana and katakana syllabaries were each derived from kanji. The whole site is one page.
+
+The chart lays out the basic kana in the traditional gojūon grid (consonant by vowel). Selecting a cell shows the cursive simplification behind its hiragana form and the component extraction behind its katakana form, each traced back to its source kanji, with the romanization. A second tab covers the voiced and semi-voiced (dakuten and handakuten) variants, and short notes flag archaic kana and duplicate readings. The chart is rendered in the browser with JavaScript; there is no API and no other page.
+
+## Pages
+
+- [Kana Derivation Chart](https://kana.gfrm.in/): the chart itself, with hiragana, katakana, source kanji and romanization for each kana
